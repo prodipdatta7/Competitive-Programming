@@ -15,10 +15,10 @@ void dijkstra(int s, int n) {
     while(!pq.empty()) {
         int x = pq.top().second ;
         pq.pop() ;
+        if(vis[x])continue ;
         vis[x] = 1 ;
         for(pii i : g[x]) {
-            if(vis[i.first] == 1)
-                continue ;
+            if(vis[i.first])continue ;
             if(dist[i.first] > dist[x] + i.second) {
                 dist[i.first] = dist[x] + i.second ;
                 pq.push({-dist[i.first], i.first}) ;
